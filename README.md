@@ -8,3 +8,7 @@ Brew
 Git
 GitHub
 SSH
+HTML
+CSS
+Font Awesome
+Google Fonts 
