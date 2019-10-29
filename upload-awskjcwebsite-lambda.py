@@ -1,4 +1,4 @@
-import json
+iimport json
 import boto3
 import StringIO
 import zipfile
@@ -6,22 +6,31 @@ import mimetypes
 
 def lambda_handler(event, context):
 
-    s3 = boto3.resource('s3')
+    sns = boto3.resource('sns')
+    topic = sns.Topic('arn:aws:sns:us-east-1:582903906649:KJCWebSite-Deployment-Topic')
 
-    build_bucket = s3.Bucket('kjc-deployment-pkgs-bucket')
-    website_bucket = s3.Bucket('www.kennethjcartwright.org')
+    try:
+        s3 = boto3.resource('s3')
 
-    build_zip = StringIO.StringIO()
-    build_bucket.download_fileobj('KJCWebSite-GitHub-Build.zip', build_zip)
+        build_bucket = s3.Bucket('kjc-deployment-pkgs-bucket')
+        website_bucket = s3.Bucket('www.kennethjcartwright.org')
 
-    with zipfile.ZipFile(build_zip) as myzip:
-        for nm in myzip.namelist():
-            obj = myzip.open(nm)
-#            website_bucket.upload_fileobj(obj, nm)
-            print(nm)
-            website_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
+        build_zip = StringIO.StringIO()
+        build_bucket.download_fileobj('KJCWebSite-GitHub-Build.zip', build_zip)
 
-            website_bucket.Object(nm).Acl().put(ACL='public-read')
+        with zipfile.ZipFile(build_zip) as myzip:
+            for nm in myzip.namelist():
+                obj = myzip.open(nm)
+                print(nm)
+                website_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
+
+                website_bucket.Object(nm).Acl().put(ACL='public-read')
+
+        topic.publish(Subject="KJCWebSite Deployment Succeeded", Message="KJC WebSite deployed.")
+
+    except:
+        topic.publish(Subject="KJCWebSite Deployment Failed", Message="KJC WebSite failed to deploy.")
+        raise
 
     return {
         'statusCode': 200,
