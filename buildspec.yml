@@ -9,8 +9,9 @@ phases:
       - echo Nothing to do yet
 artifacts:
   files:
-      - index.html
+      - *.html
       - favicon.ico
       - KennethJCartwrightResume.pdf
-      - styles/main.css
+      - styles/*
       - images/*
+      - data/*
