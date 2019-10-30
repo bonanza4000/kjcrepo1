@@ -45,6 +45,7 @@ def lambda_handler(event, context):
         topic.publish(Subject="KJCWebSite Deployment Succeeded", Message="KJC WebSite deployed.")
         if job:
             codepipeline = boto3.client('codepipeline')
+            print "Job ID:" + job["id"]
             codepipeline.put_job_success_result(jobId = job["id"])
 
     except:
