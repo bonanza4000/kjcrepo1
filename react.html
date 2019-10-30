@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>KJC React WebSite</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/mocha@3.4.2/mocha.css">
     <style media="screen">
       .messageBox {
         border: 1px solid;
@@ -31,9 +33,13 @@
   <body>
     <main id="content" ></main>
 
+    <<div id="mocha"></div>
+
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <script type="text/javascript" src=https://unpkg.com/react@16.7.0/umd/react.production.min.js></script>
-    <script type="text/javascript" src=https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js></script>
+    <script type="text/javascript" src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/chai@4.0.2/chai.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mocha@3.4.2/mocha.js"></script>
 
     <script type="text/babel" data-presets="react">
 
@@ -68,7 +74,7 @@
           return(
             <div>
               <label>Name: <input ref="nameInput" type="text" /></label>
-              <button onClick={this.buttonClicked}> Click Me! </button>
+              <button id="inputButton" onClick={this.buttonClicked}> Click Me! </button>
 
               <MessageBox type={msg.type} message={msg.body}/>
             </div>
@@ -87,6 +93,35 @@
       }
 
       ReactDOM.render(<NameInput />, document.getElementById('content'));
+
+    </script>
+
+    <script type="text/babel" data-presets="react">
+
+      const assert = chai.assert;
+      mocha.ui("bdd");
+      mocha.reporter("html");
+
+      describe("Document tests", () => {
+        it("Rendered an empty message box", () => {
+          let msgBox = document.querySelector(".messageBox");
+
+          assert.isDefined(msgBox, "MessageBox Component found.");
+          assert.include(msgBox.classList.value, "hidden", "MessageBox is hidden.");
+          assert.equal(msgBox.innerText, "", "MessageBox text is empty.");
+        });
+
+        it("Rendered an error when name was empty", () => {
+          let msgBox = document.querySelector(".messageBox");
+          let button = document.querySelector("#inputButton");
+          button.click()
+
+          assert.include(msgBox.classList.value, "error", "MessageBox type is error.");
+        });
+      });
+
+      mocha.run();
+
     </script>
 
   </body>
