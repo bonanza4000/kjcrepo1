@@ -6,7 +6,8 @@ phases:
       nodejs: 8
   build:
     commands:
-      - echo Nothing to do yet
+      - npm install
+      - npm run webpack
 artifacts:
   files:
       - index.html
@@ -16,3 +17,4 @@ artifacts:
       - styles/*
       - images/*
       - data/*
+      - dist/kjcwebsite_webpack_bundle.js
