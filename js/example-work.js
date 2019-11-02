@@ -12,7 +12,7 @@ class ExampleWork extends React.Component {
       return (
         <div>
           <center>
-            <h1>WebSite for Prototyping and Exploring Technologies </h1>
+            <h1>WebSite for Prototyping and Exploring Technologies</h1>
           </center>
 
           <WebSitePrototype />
