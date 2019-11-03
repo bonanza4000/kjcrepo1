@@ -33,7 +33,7 @@ class ExampleWork extends React.Component {
 
           <h3 style={{"paddingLeft" : "30px"}}>Implemented Using</h3>
           <ul>
-            <li>AWS Route53 for Domain Name and DNS Resolution</li>
+            <li>AWS Route 53 for Domain Name and DNS Resolution</li>
             <li>AWS Certificate Manager for SSL Cert</li>
             <li>AWS S3 for Deployment Artifacts and WebSite Origin</li>
             <li>AWS CloudFront for WebSite SSL Termination and CDN Edge Cache</li>
