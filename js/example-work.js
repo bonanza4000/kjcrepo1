@@ -36,7 +36,7 @@ class ExampleWork extends React.Component {
       return (
 
         <div>
-          <h2>Simple React WebSite via AWS Infra: <a href="https://www.kennethjcartwright.org/KennethJCartwrightResume.pdf">Resume</a></h2>
+          <h2>Simple React WebSite using AWS Infra: <a href="https://www.kennethjcartwright.org/KennethJCartwrightResume.pdf">Resume</a></h2>
 
           <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
