@@ -40,14 +40,14 @@ class ExampleWork extends React.Component {
 
           <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
-            <li>AWS Route 53 for Domain Name and DNS Resolution</li>
+            <li>AWS Route53 for Domain Name and DNS Resolution</li>
             <li>AWS Certificate Manager for SSL Cert</li>
             <li>AWS S3 for Deployment Artifacts and WebSite Origin</li>
             <li>AWS CloudFront for WebSite SSL Termination and CDN Edge Cache</li>
             <li>AWS CodeBuild, CodePipeline, GitHub, and Lambda for CI/CD</li>
             <li>AWS IAM Roles and Policies for Priv Management</li>
             <li>React, Babel, NPM, and Webpack for WebSite Impl, Depend Mgmt, and Packaging</li>
-            <li>Chai Asserts and Mocha for WebSite JavaScript Testing</li>
+            <li>Enzyme and Jest, Chai Asserts and Mocha, for WebSite JavaScript Testing</li>
           </ul>
         </div>
 
