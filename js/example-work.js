@@ -97,10 +97,8 @@ class ExampleWork extends React.Component {
           </ul>
 
           <div style={{"paddingLeft" : "30px"}}>
-            <button id="lambdaButton" style={{"background-color": "green", "cursor":"pointer", "color":"white", "font-size":"80%"}} onClick={this.invokeLambda}>Invoke My AWS Lambda Function</button>
-            <p>
-              <LambdaFuncMessageBox message={this.state.resp}/>
-            </p>
+            <button id="lambdaButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.invokeLambda}>Invoke My AWS Lambda Function</button>
+              <KJCMessageBox message={this.state.resp}/>
           </div>
         </div>
 
@@ -122,7 +120,7 @@ class ExampleWork extends React.Component {
         let urlparameter = "No UserAccess Token.  You are not logged in.";
 
         if (window.location.href.indexOf("access_token") > -1) {
-            urlparameter = getUrlVars()["access_token"];
+            urlparameter = this.getUrlVars()["access_token"];
         }
 
         this.setState({ urlparameter });
@@ -153,10 +151,8 @@ class ExampleWork extends React.Component {
           </ul>
 
           <div style={{"paddingLeft" : "30px"}}>
-            <button id="accessTokenButton" style={{"background-color": "green", "cursor":"pointer", "color":"white", "font-size":"80%"}} onClick={this.getUserAccessToken}>After Logging In, View Your AWS Cognito UserAccess Token for this WebSite</button>
-            <p>
-              <LambdaFuncMessageBox message={this.state.urlparameter}/>
-            </p>
+            <button id="accessTokenButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.getUserAccessToken}>After Logging In, View Your AWS Cognito UserAccess Token for this WebSite</button>
+              <KJCMessageBox message={this.state.urlparameter}/>
           </div>
         </div>
 
@@ -194,10 +190,8 @@ class ExampleWork extends React.Component {
           </ul>
 
           <div style={{"paddingLeft" : "30px"}}>
-            <button id="spaceXButton" style={{"background-color": "green", "cursor":"pointer", "color":"white", "font-size":"80%"}} onClick={this.getSpaceXLaunchHistory}>View SpaceX Launch History</button>
-            <p>
-              <LambdaFuncMessageBox message={this.state.spaceXLaunchHistory}/>
-            </p>
+            <button id="spaceXButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.getSpaceXLaunchHistory}>View SpaceX Launch History</button>
+              <KJCMessageBox message={this.state.spaceXLaunchHistory}/>
           </div>
         </div>
 
@@ -206,10 +200,13 @@ class ExampleWork extends React.Component {
   }
 
 
-  class LambdaFuncMessageBox extends React.Component {
+  class KJCMessageBox extends React.Component {
     render() {
       return (
-        <div style={{"color" : "orange", "font-family" : "courier"}}>{this.props.message}</div>
+        <div style={{"color":"orange", "fontFamily":"courier"}}>
+        <p></p>
+          {this.props.message}
+        </div>
       )
     }
   }
