@@ -36,7 +36,7 @@ class ExampleWork extends React.Component {
       return (
 
         <div>
-          <h2>Simple React WebSite using AWS Infra: <a href="https://www.kennethjcartwright.org/KennethJCartwrightResume.pdf">Resume</a></h2>
+          <h2>Simple ReactJS WebSite using AWS Infra: <a href="https://www.kennethjcartwright.org/KennethJCartwrightResume.pdf">Resume</a></h2>
 
           <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
@@ -46,7 +46,7 @@ class ExampleWork extends React.Component {
             <li>AWS CloudFront for WebSite SSL Termination and CDN Edge Cache</li>
             <li>AWS CodeBuild, CodePipeline, GitHub, and Lambda for CI/CD</li>
             <li>AWS IAM Roles and Policies for Priv Management</li>
-            <li>React, Babel, NPM, and Webpack for WebSite Impl, Depend Mgmt, and Packaging</li>
+            <li>ReactJS, Babel, NPM, and Webpack for WebSite Impl, Depend Mgmt, and Packaging</li>
             <li>Enzyme and Jest, Chai Asserts and Mocha, for WebSite JavaScript Testing</li>
           </ul>
         </div>
