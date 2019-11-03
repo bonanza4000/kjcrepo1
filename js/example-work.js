@@ -219,3 +219,6 @@ class ExampleWork extends React.Component {
   }
 
   export default ExampleWork;
+  export { LambdaAPIGatewayPrototype };
+  export { CognitoIdentityProviderPrototype };
+  export { DynamoDBPrototype };
