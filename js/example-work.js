@@ -14,11 +14,17 @@ class ExampleWork extends React.Component {
           <center>
             <h1>WebSite for Prototyping and Exploring Technologies</h1>
           </center>
+          <br></br>
 
           <WebSitePrototype />
+          <br></br>
           <LambdaAPIGatewayPrototype  />
+          <br></br>
           <CognitoIdentityProviderPrototype  />
+          <br></br>
           <DynamoDBPrototype  />
+          <br></br>
+
         </div>
       )
     }
@@ -31,9 +37,9 @@ class ExampleWork extends React.Component {
         <div>
           <h2>Simple React WebSite via AWS Infra: <a href="https://www.kennethjcartwright.org/KennethJCartwrightResume.pdf">Resume</a></h2>
 
-          <h3 style={{"paddingLeft" : "30px"}}>Implemented Using</h3>
+          <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
-            <li>AWS Route 53 for Domain Name and DNS Resolution</li>
+            <li>AWS Route53 for Domain Name and DNS Resolution</li>
             <li>AWS Certificate Manager for SSL Cert</li>
             <li>AWS S3 for Deployment Artifacts and WebSite Origin</li>
             <li>AWS CloudFront for WebSite SSL Termination and CDN Edge Cache</li>
@@ -89,15 +95,15 @@ class ExampleWork extends React.Component {
         <div>
           <h2>Simple Serverless Infra via API Gateway and AWS Lambda Function</h2>
 
-          <h3 style={{"paddingLeft" : "30px"}}>Implemented Using</h3>
+          <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
             <li>AWS API Gateway for REST API Proxy</li>
             <li>AWS Lambda in Python for Serverless, Scalable Execution Environment</li>
             <li>AWS X-Ray and CloudWatch for Execution Call Tracing</li>
           </ul>
 
-          <div style={{"paddingLeft" : "30px"}}>
-            <button id="lambdaButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.invokeLambda}>Invoke My AWS Lambda Function</button>
+          <div style={{"paddingLeft":"50px"}}>
+            <button id="lambdaButton" style={{"backgroundColor":"green", "cursor":"pointer", "color":"white", "fontSize":"100%"}} onClick={this.invokeLambda}>Invoke My AWS Lambda Function</button>
               <KJCMessageBox message={this.state.resp}/>
           </div>
         </div>
@@ -143,15 +149,15 @@ class ExampleWork extends React.Component {
         <div>
           <h2>Website User Identity Provider via AWS Infra: <a href="https://login.kennethjcartwright.org/login?response_type=token&client_id=7albjcj89f331ams0lao796bk7&redirect_uri=https://www.kennethjcartwright.org">Login or Create Account</a></h2>
 
-          <h3 style={{"paddingLeft" : "30px"}}>Implemented Using</h3>
+          <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
             <li>AWS Cognito for Identity Provider</li>
             <li>AWS Route53 for DomainName and DNS Resolution</li>
             <li>AWS Certificate Manager for SSL Cert</li>
           </ul>
 
-          <div style={{"paddingLeft" : "30px"}}>
-            <button id="accessTokenButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.getUserAccessToken}>After Logging In, View Your AWS Cognito UserAccess Token for this WebSite</button>
+          <div style={{"paddingLeft":"50px"}}>
+            <button id="accessTokenButton" style={{"backgroundColor":"green", "cursor":"pointer", "color":"white", "fontSize":"100%"}} onClick={this.getUserAccessToken}>After Logging In, View Your AWS Cognito UserAccess Token for this WebSite</button>
               <KJCMessageBox message={this.state.urlparameter}/>
           </div>
         </div>
@@ -182,15 +188,15 @@ class ExampleWork extends React.Component {
         <div>
           <h2>Reading from and Writing to DynamoDB: </h2>
 
-          <h3 style={{"paddingLeft" : "30px"}}>Implemented Using</h3>
+          <h3 style={{"paddingLeft":"30px"}}>Implemented Using:</h3>
           <ul>
             <li>AWS DynamoDB for Scalable Persistence</li>
             <li>AWS API Gateway for REST API Proxy</li>
             <li>AWS Lambda in Java for Serverless, Scalable Execution Environment</li>
           </ul>
 
-          <div style={{"paddingLeft" : "30px"}}>
-            <button id="spaceXButton" style={{"backgroundColor": "green", "cursor":"pointer", "color":"white", "fontSize":"80%"}} onClick={this.getSpaceXLaunchHistory}>View SpaceX Launch History</button>
+          <div style={{"paddingLeft":"50px"}}>
+            <button id="spaceXButton" style={{"backgroundColor":"green", "cursor":"pointer", "color":"white", "fontSize":"100%"}} onClick={this.getSpaceXLaunchHistory}>View SpaceX Launch History</button>
               <KJCMessageBox message={this.state.spaceXLaunchHistory}/>
           </div>
         </div>
@@ -203,7 +209,7 @@ class ExampleWork extends React.Component {
   class KJCMessageBox extends React.Component {
     render() {
       return (
-        <div style={{"color":"orange", "fontFamily":"courier"}}>
+        <div style={{"color":"orange", "fontFamily":"courier", "fontSize":"12px"}}>
         <p></p>
           {this.props.message}
         </div>
